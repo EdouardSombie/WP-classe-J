@@ -1,0 +1,31 @@
+#site-header{
+	padding-top: rem(46);
+	margin-bottom: rem(117);
+	nav{
+		ul{
+			@include reset-list;
+			display: flex;
+			gap: rem(45);
+			justify-content: center;
+			li{
+				a{
+					display: block;
+					font-family: $font1;
+					font-size: rem(16);
+					color: var(--text-color);
+					padding: rem(4) rem(9);
+					line-height: 1.5;
+					transition: background-color 0.3s, color 0.3s;
+					text-decoration: none;
+				}
+				&:hover, &.current-menu-item{
+					a{
+						background-color: var(--main-color);
+						color: var(--hover-text-color);
+					}
+				}
+			}
+			
+		}
+	}
+}

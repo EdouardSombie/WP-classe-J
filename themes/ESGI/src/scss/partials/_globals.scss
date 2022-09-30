@@ -1,0 +1,16 @@
+*{
+	box-sizing: border-box;
+}
+
+html{
+	--text-color: #{$text-color};
+	--main-color: #{$main-color};
+	--hover-text-color: #{$white};
+	--very-light-grey: #{$very-light-grey};
+}
+
+
+body{
+	font-family: $font2;
+	color: var(--text-color);
+}

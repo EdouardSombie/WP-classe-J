@@ -1,0 +1,10 @@
+.post-title{
+	@include heading1;
+	text-align: center;
+	margin-top: 0;
+	margin-bottom: rem(29);
+}
+
+.post-content{
+	@include heading4;
+}

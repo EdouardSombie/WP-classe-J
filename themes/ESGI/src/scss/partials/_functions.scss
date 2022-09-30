@@ -1,0 +1,10 @@
+@function rem($pxVal){
+	$base: 16;
+	@return ($pxVal / $base) * 1rem;
+}
+
+@mixin reset-list{
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}

@@ -1,0 +1,52 @@
+.identity-block{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	margin-top: rem(110);
+	img{
+		display: block;
+		width: rem(102);
+		height: rem(102);
+		object-fit: cover;
+		object-position: center;
+		border-radius: 100rem;
+		margin-bottom: rem(30);
+	}
+	h1{
+		@include heading1;
+		margin-bottom: rem(33);
+		margin-top: 0;
+	}
+	.description{
+		@include heading4;
+		margin-bottom: rem(25);
+		margin-top: 0;
+	}
+	footer{
+		nav{
+			ul{
+				@include reset-list;
+				display: flex;
+				gap: rem(25);
+				a{
+					display: block;
+					svg{
+						height: rem(18);
+						width: auto;
+						path{
+							fill: var(--text-color);
+							transition: all 0.3s;
+						}
+					}
+					&:hover{
+						svg{
+							path{
+								fill: var(--main-color);
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}

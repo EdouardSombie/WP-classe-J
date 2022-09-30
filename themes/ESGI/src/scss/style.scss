@@ -1,0 +1,32 @@
+/*
+Theme Name: ESGI
+Text Domain: ESGI
+Version: 1.0
+Tested up to: 6.0.2
+Requires at least: 5.0
+Requires PHP: 7.3
+Description: Thème de développement du cours Panorama de CMS
+Tags: cours, TP
+Author: ESGI team
+Author URI: https://esgi.fr/
+Theme URI: https://esgi.fr/
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+
+All files, unless otherwise stated, are released under the GNU General Public
+License version 2.0 (http://www.gnu.org/licenses/gpl-2.0.html)
+*/
+
+
+@import "vendor/normalize.scss";
+@import "vendor/bootstrap-grid.min.scss";
+
+@import "partials/functions";
+@import "partials/fonts";
+@import "partials/colors";
+@import "partials/globals";
+@import "partials/header";
+@import "partials/footer";
+@import "partials/identity-block";
+@import "partials/post-list";
+@import "partials/post";

@@ -1,0 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Overpass:ital,wght@0,300;0,500;1,300;1,500&family=Source+Serif+Pro:ital,wght@0,300;0,600;1,300;1,600&display=swap');
+
+$font1: 'Overpass', sans-serif;
+$font2: 'Source Serif Pro', serif;
+
+@mixin heading1{
+	font-family: $font1;
+	font-size: rem(25);
+	letter-spacing: 0.1em;
+}
+
+@mixin heading4{
+	font-family: $font2;
+	font-size: rem(16);
+	line-height: 1.6875;
+	letter-spacing: 0.03em;
+}
