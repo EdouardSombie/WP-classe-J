@@ -9,10 +9,12 @@ function esgi_register_menu(){
 	);
 }
 
-// Ajouter un asset css (en file d'attente)
+// Ajouter les assets css et js (en file d'attente)
 add_action('wp_enqueue_scripts', 'esgi_style_and_script');
 function esgi_style_and_script(){
 	wp_enqueue_style('mainCSS', get_stylesheet_uri(), 0);
+	wp_enqueue_script('jQuery', get_template_directory_uri() . '/assets/js/vendor/jquery-3.6.1.min.js', 0);
+	wp_enqueue_script('mainJS', get_template_directory_uri() . '/assets/js/main.js', 1);
 }
 
 // Autoriser l'ajout d'un logo custom
@@ -20,6 +22,7 @@ add_action('after_setup_theme', 'esgi_support_theme');
 function esgi_support_theme(){
 	add_theme_support('custom-logo');
 	add_theme_support('post-thumbnails');
+	add_theme_support('widgets');
 }
 
 
@@ -57,6 +60,15 @@ function esgi_customize($wp_customize){
 	  'sanitize_js_callback' => '', // Basically to_json.
 	] );
 
+	$wp_customize->add_setting( 'sidebar_on', [
+	  'type' => 'theme_mod', // or 'option'
+	  'capability' => 'edit_theme_options',
+	  'default' => '',
+	  'transport' => 'refresh', // or postMessage
+	  'sanitize_callback' => 'sanitize_boolean',
+	  'sanitize_js_callback' => '', // Basically to_json.
+	] );
+
 	// Ajouter des controles (un par setting)
 	$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'main_color', [
 			'priority' => 1,
@@ -72,6 +84,12 @@ function esgi_customize($wp_customize){
 	  'label' => __( 'Mode sombre' ),
 	] );
 
+	$wp_customize->add_control( 'sidebar_on', [
+	  'type' => 'checkbox',
+	  'priority' => 3, // Within the section.
+	  'section' => 'section_esgi', // Required, core or custom.
+	  'label' => __( 'Afficher la barre latérale sur les pages d\'article.' ),
+	] );
 
 }
 
@@ -104,6 +122,21 @@ function esgi_dark_mode($classes){
 	}
 	return $classes;
 }
+
+
+// Ajout d'une zone de widget
+add_action( 'widgets_init', 'esgi_widgets_init' );
+function esgi_widgets_init() {
+	register_sidebar( [
+		'name'          => __('Zone de widgets de la barre latérale'),
+		'id'            => 'sidebar_widgets_area',
+		'before_widget' => '<div class="widget">',
+		'after_widget'  => '</div>',
+		'before_title'  => '<h2 class="widget-title">',
+		'after_title'   => '</h2>',
+	] );
+}
+
 
 
 // ajout d'image svg au markup de la page
