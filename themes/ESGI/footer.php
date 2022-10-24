@@ -3,6 +3,7 @@
 				<p>
 					WP-ESGI Theme by Edouard
 				</p>
+				<?= get_search_form() ?>
 			</footer>
 		</div>
 		<?php wp_footer(); ?>

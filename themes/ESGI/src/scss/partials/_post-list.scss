@@ -1,0 +1,26 @@
+.post-list{
+	@include reset-list;
+	margin-bottom: rem(60);
+	padding-top: rem(60);
+	border-top: solid thin $very-light-grey;
+	li{
+		article{
+			a{
+				display: flex;
+				justify-content: space-between;
+				align-items: flex-start;
+				h1{
+					@include heading3;
+					padding-right: 30px;
+					margin-top: 0;
+				}
+				time{
+					@include heading6;
+					flex-shrink: 0;
+					color: $grey;
+				}
+			}
+		}
+		
+	}
+}

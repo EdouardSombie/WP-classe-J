@@ -9,9 +9,25 @@ $font2: 'Source Serif Pro', serif;
 	letter-spacing: 0.1em;
 }
 
+@mixin heading3{
+	font-family: $font1;
+	font-size: rem(16);
+	font-weight: 400;
+	letter-spacing: 0.1em;
+	line-height: 1.5;
+}
+
 @mixin heading4{
 	font-family: $font2;
 	font-size: rem(16);
 	line-height: 1.6875;
 	letter-spacing: 0.03em;
+}
+
+@mixin heading6{
+	font-family: $font1;
+	font-size: rem(13);
+	letter-spacing: 0.05em;
+	line-height: 1.6154;
+	font-weight: 300;
 }

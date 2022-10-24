@@ -1,14 +1,8 @@
 <?php 
-// Récupérer les 6 derniers posts
-$args = [
-	'numberposts' => 6,
-	'post_status' => 'publish',
-	'order' => 'DESC',
-	'order_by' => 'date'
-];
+global $wp_query;
+$posts = $wp_query->posts;
 
-$posts = get_posts($args);
-echo '<ul>';
+echo '<ul class="post-list">';
 foreach ($posts as $p) { ?>
 <li>
 	<article>
@@ -22,3 +16,11 @@ foreach ($posts as $p) { ?>
 <?php }
 echo '</ul>';
 ?>
+<div class="pagination">
+	<?php 
+	echo paginate_links( [	
+		'current' => max( 1, get_query_var('paged') ),
+		'total' => $wp_query->max_num_pages
+	]);
+	?>
+</div>

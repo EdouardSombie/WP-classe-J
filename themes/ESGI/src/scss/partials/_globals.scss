@@ -7,10 +7,27 @@ html{
 	--main-color: #{$main-color};
 	--hover-text-color: #{$white};
 	--very-light-grey: #{$very-light-grey};
+	--bg-color: #{$white};
 }
 
 
 body{
 	font-family: $font2;
 	color: var(--text-color);
+	background-color: var(--bg-color);
+	&.dark{
+		--text-color: #{$white};
+		--bg-color: #{$black};
+	}
+}
+
+img{
+	max-width: 100%;
+	object-fit: cover;
+	object-position: center;
+}
+
+a{
+	text-decoration: none;
+	color: currentColor;
 }

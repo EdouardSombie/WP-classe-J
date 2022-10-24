@@ -4377,15 +4377,34 @@ template {
 }
 
 html {
-  --text-color: #000;
+  --text-color: #1A1A1A;
   --main-color: #3F51B5;
   --hover-text-color: #FFF;
   --very-light-grey: #F0F0F0;
+  --bg-color: #FFF;
 }
 
 body {
   font-family: "Source Serif Pro", serif;
   color: var(--text-color);
+  background-color: var(--bg-color);
+}
+body.dark {
+  --text-color: #FFF;
+  --bg-color: #000;
+}
+
+img {
+  max-width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: center;
+     object-position: center;
+}
+
+a {
+  text-decoration: none;
+  color: currentColor;
 }
 
 #site-header {
@@ -4418,6 +4437,7 @@ body {
 #site-footer {
   border-top: solid thin var(--very-light-grey);
   padding-top: 3.75rem;
+  padding-bottom: 3.75rem;
   margin-top: 3.75rem;
   color: var(--text-color);
   font-size: 0.8125rem;
@@ -4429,6 +4449,7 @@ body {
   flex-direction: column;
   align-items: center;
   margin-top: 6.875rem;
+  margin-bottom: 3.75rem;
 }
 .identity-block img {
   display: block;
@@ -4478,6 +4499,38 @@ body {
   fill: var(--main-color);
 }
 
+.post-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  margin-bottom: 3.75rem;
+  padding-top: 3.75rem;
+  border-top: solid thin #F0F0F0;
+}
+.post-list li article a {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+.post-list li article a h1 {
+  font-family: "Overpass", sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
+  letter-spacing: 0.1em;
+  line-height: 1.5;
+  padding-right: 30px;
+  margin-top: 0;
+}
+.post-list li article a time {
+  font-family: "Overpass", sans-serif;
+  font-size: 0.8125rem;
+  letter-spacing: 0.05em;
+  line-height: 1.6154;
+  font-weight: 300;
+  flex-shrink: 0;
+  color: #555;
+}
+
 .post-title {
   font-family: "Overpass", sans-serif;
   font-size: 1.5625rem;
@@ -4492,4 +4545,35 @@ body {
   font-size: 1rem;
   line-height: 1.6875;
   letter-spacing: 0.03em;
+}
+
+.post-meta {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  justify-content: center;
+  margin-bottom: 45px;
+  font-family: "Overpass", sans-serif;
+  font-size: 0.8125rem;
+  letter-spacing: 0.05em;
+  line-height: 1.6154;
+  font-weight: 300;
+}
+.post-meta .post-author {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+}
+.post-meta .post-author img {
+  width: 32px;
+  height: 32px;
+  border-radius: 500px;
+}
+
+.post-image {
+  margin-bottom: 2em;
+}
+.post-image img {
+  width: 100%;
+  max-height: 420px;
 }
