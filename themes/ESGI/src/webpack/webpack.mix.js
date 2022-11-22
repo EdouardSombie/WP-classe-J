@@ -13,11 +13,11 @@ let mix = require('laravel-mix');
 
 mix.setPublicPath('../../');
 
-// mix.babel([
-//  '../src/js/vendor/jquery-3.6.0.min.js',
-//  '../src/js/components/slider.js',
-//  '../src/js/main.js'
-// ], '../dist/main.js');
+mix.babel([
+ //'../src/js/vendor/jquery-3.6.0.min.js',
+ '../js/main.js',
+ //'../src/js/main.js'
+], '../../assets/js/main.js');
 
 mix.sass('../scss/style.scss', '../../').options({
         processCssUrls: false

@@ -15,6 +15,34 @@ function esgi_style_and_script(){
 	wp_enqueue_style('mainCSS', get_stylesheet_uri(), 0);
 	wp_enqueue_script('jQuery', get_template_directory_uri() . '/assets/js/vendor/jquery-3.6.1.min.js', 0);
 	wp_enqueue_script('mainJS', get_template_directory_uri() . '/assets/js/main.js', 1);
+
+	// Déclarer une variable ajaxURL et la passer au js (wp_localize_script)
+	wp_localize_script('mainJS', 'ajaxURL', admin_url('admin-ajax.php'));
+}
+
+
+// Déclaration des actions ajax (load_posts)
+add_action( 'wp_ajax_load_posts', 'ajax_load_posts' );
+add_action( 'wp_ajax_nopriv_load_posts', 'ajax_load_posts' );
+
+
+function ajax_load_posts(){
+	$page = $_POST['page'];
+
+	// Créer la query avec les parametres demandés (page, type de publications)
+	$args = [
+		'post_type' => 'post',
+		'posts_per_page' => get_option('posts_per_page'),
+		'post_status' => 'publish',
+		'paged' => $page,
+	];
+	$wp_query = new WP_Query($args);
+
+	// Ouvrir le buffer PHP et y mettre le template-part post-list.php
+	ob_start();
+	include('template-parts/post-list.php');
+	echo ob_get_clean(); // Vider le tampon et lire son contenu
+	wp_die();
 }
 
 // Autoriser l'ajout d'un logo custom

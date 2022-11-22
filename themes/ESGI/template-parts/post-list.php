@@ -1,7 +1,5 @@
 <?php 
-global $wp_query;
 $posts = $wp_query->posts;
-
 echo '<ul class="post-list">';
 foreach ($posts as $p) { ?>
 <li>
@@ -19,8 +17,9 @@ echo '</ul>';
 <div class="pagination">
 	<?php 
 	echo paginate_links( [	
-		'current' => max( 1, get_query_var('paged') ),
-		'total' => $wp_query->max_num_pages
+		'current' => max( 1, $wp_query->query['paged'] ),
+		'total' => $wp_query->max_num_pages,
+		'base' => get_permalink(get_option('page_for_posts')) . '%_%',
 	]);
 	?>
 </div>

@@ -5,7 +5,7 @@
 		<div class="row">
 			<?php get_template_part('template-parts/identity-block'); ?>
 			
-			<div class="col-md-6 offset-md-3">
+			<div class="col-md-6 offset-md-3" id="ajax-response">
 			<?php if(!is_front_page()){
 				// Récupérer les 6 derniers posts
 				// $args = [
