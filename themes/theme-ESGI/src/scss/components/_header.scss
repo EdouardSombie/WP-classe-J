@@ -1,0 +1,30 @@
+#site-header{
+	font-family: $font2;
+	padding: rem(24) 0 rem(122);
+	@include text3;
+	ul{
+		list-style: none;
+		margin: 0;
+		padding: 0;
+		display: flex;
+		justify-content: center;
+		li{
+			&.current-menu-item, &.current_page_parent, &:hover{
+				a{
+					background-color: var(--main-color);
+					color: $white;
+				}
+			}
+			a{	
+				padding: rem(9) rem(7);
+				display: block;
+				text-decoration: none;
+				line-height: 1;
+				color: var(--text-color);
+				margin: 0 rem(24);
+				transition: color 0.3s, background-color 0.3s;
+			}
+		}
+	}
+
+}

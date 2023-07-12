@@ -1,0 +1,52 @@
+@import url('https://fonts.googleapis.com/css2?family=Overpass:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,300;0,600;1,300;1,600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Source+Serif+Pro:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+$font1: 'Source Serif Pro', serif;
+$font2: 'Overpass', sans-serif;
+$font3: 'Roboto Mono', monospace;
+
+
+@mixin text1{
+	font-family: $font2;
+	font-size: rem(25);
+	line-height: auto;
+	letter-spacing: 0.1em;
+}
+
+@mixin text2{
+	font-family: $font3;
+	font-size: rem(16);
+	line-height: rem(27);
+	letter-spacing: 0;
+	color: var(--grey);
+}
+
+@mixin text3{
+	font-family: $font2;
+	font-size: rem(16);
+	line-height: 1.49;
+	letter-spacing: 0.1em;
+}
+
+@mixin text4{
+	font-family: $font1;
+	font-size: rem(16);
+	line-height: rem(27);
+	letter-spacing: 0.03em;
+}
+
+@mixin text5{
+	font-family: $font1;
+	font-size: rem(16);
+	letter-spacing: 0.03em;
+	line-height: rem(27);
+}
+
+@mixin text6{
+	color: var(--grey);
+	font-size: rem(13);
+	line-height: 1.75;
+	letter-spacing: 0.05em;
+	font-family: $font2;
+}
