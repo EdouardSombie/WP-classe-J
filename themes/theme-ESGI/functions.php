@@ -12,6 +12,7 @@ function esgi_init(){
 add_action('after_setup_theme','esgi_after_setup_theme');
 function esgi_after_setup_theme(){
 	add_theme_support('custom-logo');
+	add_theme_support('post-thumbnails');
 }
 
 // chargement de la feuille de style
