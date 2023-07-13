@@ -6,7 +6,9 @@
 		<?php if(!is_front_page()){ ?>
 			<div class="row">
 				<div class="col-md-6 offset-md-3"> 
-					<?php get_template_part('template-parts/post-list'); ?>
+					<div id="list-wrapper">
+						<?php get_template_part('template-parts/post-list'); ?>
+					</div>
 				</div>
 			</div>
 		<?php } ?>

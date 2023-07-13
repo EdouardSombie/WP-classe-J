@@ -1,6 +1,10 @@
 <?php
 
-$paged = ( get_query_var( 'paged' ) ) ? absint( get_query_var( 'paged' ) ) : 1;
+if(!isset($paged)){
+	$paged = ( get_query_var( 'paged' ) ) ? absint( get_query_var( 'paged' ) ) : 1;
+}
+
+
 
 $args = [
 	'posts_per_page' => 2,

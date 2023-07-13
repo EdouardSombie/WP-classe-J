@@ -16,11 +16,20 @@ function esgi_after_setup_theme(){
 	add_theme_support('widgets');
 }
 
-// chargement de la feuille de style
+// chargement de la feuille de style et du js
 
 add_action('wp_enqueue_scripts', 'esgi_enqueue_assets');
 function esgi_enqueue_assets(){
 	wp_enqueue_style('main', get_stylesheet_uri());
+	wp_enqueue_script('myJquery', get_template_directory_uri() . '/assets/js/vendor/jquery-3.7.0.min.js');
+	wp_enqueue_script('main', get_template_directory_uri() . '/assets/js/main.js');
+
+	// Injection d'une variable dans le js
+	$variables = [
+		'ajaxURL' => admin_url('admin-ajax.php')
+	];
+	wp_localize_script('main', 'esgi', $variables);
+
 }
 
 // Enregistrement des zones de widgets
@@ -38,6 +47,19 @@ function esgi_widgets_init(){
 // Déclaration des routes AJAX
 add_action( 'wp_ajax_load_posts', 'esgi_ajax_load_posts' );
 add_action( 'wp_ajax_nopriv_load_posts', 'esgi_ajax_load_posts' );
+
+function esgi_ajax_load_posts(){
+	$paged = $_POST['page'];
+	// ouverture du cache php
+	ob_start();
+	// ecriture du contenu
+	include('template-parts/post-list.php');
+	// Fermeture du cache et renvoi de son contenu
+	echo ob_get_clean();
+	die();
+}
+
+
 
 
 // CUSTOMIZER DE THEME
@@ -145,3 +167,11 @@ function getIcon($icon){
 	return $$icon;
 
 }
+
+
+
+?>
+
+
+
+
