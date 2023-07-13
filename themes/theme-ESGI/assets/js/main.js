@@ -36,7 +36,8 @@ function loadPage(page, nextState, nextTitle, nextURL){
 		type: 'POST',
 		data: {
 			'action': 'load_posts',
-			'page' : page
+			'page' : page,
+			'base' : esgi.baseURL
 		}
 	}).done(function(reponse){
 		$('#list-wrapper').html(reponse)

@@ -24,9 +24,13 @@ function esgi_enqueue_assets(){
 	wp_enqueue_script('myJquery', get_template_directory_uri() . '/assets/js/vendor/jquery-3.7.0.min.js');
 	wp_enqueue_script('main', get_template_directory_uri() . '/assets/js/main.js');
 
+	$big = 999999999; // need an unlikely integer
+	$base = str_replace( $big, '%#%', esc_url( get_pagenum_link( $big ) ) );
+	
 	// Injection d'une variable dans le js
 	$variables = [
-		'ajaxURL' => admin_url('admin-ajax.php')
+		'ajaxURL' => admin_url('admin-ajax.php'),
+		'baseURL' => $base
 	];
 	wp_localize_script('main', 'esgi', $variables);
 
@@ -50,6 +54,7 @@ add_action( 'wp_ajax_nopriv_load_posts', 'esgi_ajax_load_posts' );
 
 function esgi_ajax_load_posts(){
 	$paged = $_POST['page'];
+	$base = $_POST['base'];
 	// ouverture du cache php
 	ob_start();
 	// ecriture du contenu
